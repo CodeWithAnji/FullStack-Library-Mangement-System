@@ -27,7 +27,7 @@ const Users = () => {
   const handleDelete = async (id) => {
     if (!window.confirm("Are you sure you want to delete this user?")) return;
     try {
-      const res = await fetch(`http://localhost:8009/api/users/${id}`, {
+      const res = await fetch(`http://localhost:8009/api/auth/${id}`, {
         method: "DELETE",
       });
       if (res.ok) {

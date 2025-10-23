@@ -45,7 +45,10 @@ const AdminDashboard = () => {
       <Sidebar setActiveTab={setActiveTab} handleLogout={handleLogout} />
       <div className="flex-1 p-6">
         <h1 className="text-2xl font-bold text-deepBlue mb-4">
-          Welcome, {user?.username || "Admin"}!
+          Welcome,{" "}
+          <span className="font-bold text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 to-purple-600">
+            {user?.username || "Admin"}
+          </span>
         </h1>
         {renderSection()}
       </div>

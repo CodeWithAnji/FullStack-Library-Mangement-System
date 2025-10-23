@@ -24,19 +24,19 @@ const Navbar = () => {
         <div className="flex items-center gap-6 text-grayish font-medium">
           <NavLink
             to="/"
-            className="hover:text-aqua transition flex items-center gap-1"
+            className="hover:text-blue-600 transition flex items-center gap-1"
           >
             <Home size={18} /> Home
           </NavLink>
           <NavLink
             to="/about"
-            className="hover:text-aqua transition flex items-center gap-1"
+            className="hover:text-blue-600 transition flex items-center gap-1"
           >
             <Info size={18} /> About
           </NavLink>
           <NavLink
             to="/view-books"
-            className="hover:text-aqua transition flex items-center gap-1"
+            className="hover:text-blue-600 transition flex items-center gap-1"
           >
             <BookOpen size={18} /> View Books
           </NavLink>
