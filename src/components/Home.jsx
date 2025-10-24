@@ -1,58 +1,88 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import Features from "./Features";
-
-const images = [
-  "https://images.unsplash.com/photo-1529156069898-49953e39b3ac",
-  "https://images.unsplash.com/photo-1512820790803-83ca734da794",
-  "https://images.unsplash.com/photo-1524995997946-a1c2e315a42f",
-  "https://images.unsplash.com/photo-1507842217343-583bb7270b66",
-  "https://images.unsplash.com/photo-1522202176988-66273c2fd55f",
-];
+import { BookOpen, Search, Users, Clock } from "lucide-react";
+import Lib from "../assets/lib.png";
 
 const Home = () => {
-  const [index, setIndex] = useState(0);
-
-  useEffect(() => {
-    const timer = setInterval(
-      () => setIndex((i) => (i + 1) % images.length),
-      4000
-    );
-    return () => clearInterval(timer);
-  }, []);
-
   return (
-    <main className="flex flex-col items-center w-full min-h-screen bg-ice py-12">
-      {/* Page Top Title */}
-      <div className="text-center px-4 max-w-2xl mb-8">
-        <h1 className="text-3xl md:text-4xl font-bold text-deepBlue">
-          E-LIBRARY MANAGEMENT SYSTEM
-        </h1>
-        <p className="mt-2 text-grayish text-base md:text-lg">
-          Empowering Smart and Modern Library Experiences
-        </p>
-      </div>
+    <main className="flex flex-col items-center w-full min-h-screen bg-ice">
+      {/* Hero Section */}
+      <section className="flex flex-col-reverse md:flex-row items-center justify-between w-full max-w-6xl mx-auto px-6 md:px-12 py-16">
+        {/* Left: Text Content */}
+        <div className="flex flex-col items-start text-left space-y-6 md:w-1/2">
+          <h1 className="text-4xl md:text-5xl font-bold text-deepBlue leading-tight">
+            Welcome to the <br />
+            <span className="text-aqua">E-Library Management System</span>
+          </h1>
 
-      {/* Carousel */}
-      <div className="relative w-full max-w-4xl h-[450px] overflow-hidden rounded-xl shadow-sm border-4 border-sky">
-        <img
-          src={images[index]}
-          alt={`Slide ${index + 1}`}
-          className="w-full h-full object-cover transition-transform duration-1000"
-        />
+          <p className="text-grayish text-lg md:text-xl leading-relaxed">
+            Streamline your library operations — manage books, track issues and
+            returns, and empower students and admins with a smart digital
+            library experience.
+          </p>
 
-        {/* Explore Now Button */}
-        <div className="absolute top-4 left-1/2 transform -translate-x-1/2">
-          <button className="bg-aqua text-white px-6 py-2 rounded-full font-semibold shadow-sm hover:bg-tealish transition-all transform hover:scale-105">
-            Explore Now
+          <button className="bg-aqua text-white px-8 py-3 rounded-full font-semibold shadow-md hover:bg-tealish transition-all transform hover:scale-105">
+            Get Started
           </button>
         </div>
 
-        {/* Overlay */}
-        <div className="absolute inset-0 bg-black/10"></div>
-      </div>
+        {/* Right: Illustration */}
+        <div className="md:w-1/2 mb-10 md:mb-0 flex justify-center">
+          <img
+            src={Lib}
+            alt="Library illustration"
+            className="w-full max-w-md rounded-2xl shadow-lg object-cover"
+          />
+        </div>
+      </section>
 
-      {/* Features Section */}
-      <div className="w-full mt-12">
+      {/* Feature Highlights */}
+      <section className="w-full bg-white py-12">
+        <div className="max-w-6xl mx-auto px-6 text-center">
+          <h2 className="text-3xl md:text-4xl font-bold text-deepBlue mb-8">
+            Why Choose Our E-Library?
+          </h2>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
+            {[
+              {
+                icon: <BookOpen size={40} />,
+                title: "Smart Book Management",
+                desc: "Easily add, search, and categorize books digitally.",
+              },
+              {
+                icon: <Search size={40} />,
+                title: "Fast Search",
+                desc: "Find any book or user instantly with advanced search.",
+              },
+              {
+                icon: <Users size={40} />,
+                title: "Role-Based Access",
+                desc: "Separate dashboards for Admins and Students.",
+              },
+              {
+                icon: <Clock size={40} />,
+                title: "Real-Time Tracking",
+                desc: "Monitor book issues and returns in real time.",
+              },
+            ].map((feature, index) => (
+              <div
+                key={index}
+                className="p-6 bg-ice rounded-2xl shadow-sm hover:shadow-md transition-all flex flex-col items-center text-center"
+              >
+                <div className="text-aqua mb-3">{feature.icon}</div>
+                <h3 className="text-lg font-semibold text-deepBlue mb-2">
+                  {feature.title}
+                </h3>
+                <p className="text-grayish text-sm">{feature.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Existing Features Section */}
+      <div className="w-full mt-8 mb-12">
         <Features />
       </div>
     </main>
