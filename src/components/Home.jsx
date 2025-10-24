@@ -1,7 +1,7 @@
 import React from "react";
 import Features from "./Features";
 import { BookOpen, Search, Users, Clock } from "lucide-react";
-import Lib from "../assets/lib.png";
+import Lib from "../assets/lib1.jpg";
 
 const Home = () => {
   return (
@@ -31,7 +31,7 @@ const Home = () => {
           <img
             src={Lib}
             alt="Library illustration"
-            className="w-full max-w-md rounded-2xl shadow-lg object-cover"
+            className="w-full max-w-md rounded-2xl  object-cover"
           />
         </div>
       </section>
