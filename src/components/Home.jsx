@@ -1,5 +1,4 @@
 import React from "react";
-import Features from "./Features";
 import { BookOpen, Search, Users, Clock } from "lucide-react";
 import Lib from "../assets/lib1.jpg";
 
@@ -40,7 +39,7 @@ const Home = () => {
       <section className="w-full bg-white py-12">
         <div className="max-w-6xl mx-auto px-6 text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-deepBlue mb-8">
-            Why Choose Our E-Library?
+            Our Features
           </h2>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
@@ -82,9 +81,7 @@ const Home = () => {
       </section>
 
       {/* Existing Features Section */}
-      <div className="w-full mt-8 mb-12">
-        <Features />
-      </div>
+      <div className="w-full mt-8 mb-12"></div>
     </main>
   );
 };

@@ -21,14 +21,14 @@ const Navbar = () => {
           {/* Logo */}
           <div className="flex items-center gap-2 text-deepBlue font-bold text-xl">
             <BookOpen />
-            <span className="hidden sm:inline">E-Library</span>
+            <span className="sm:inline">E-Library</span>
           </div>
 
           {/* Navigation Links */}
           <div className="flex items-center gap-5 text-grayish font-medium">
             <NavLink
               to="/"
-              className="hover:text-blue-600 transition flex items-center gap-1"
+              className="hover:text-aqua transition flex items-center gap-1"
             >
               <Home size={20} />
               <span className="hidden sm:inline">Home</span>
@@ -36,7 +36,7 @@ const Navbar = () => {
 
             <NavLink
               to="/about"
-              className="hover:text-blue-600 transition flex items-center gap-1"
+              className="hover:text-aqua transition flex items-center gap-1"
             >
               <Info size={20} />
               <span className="hidden sm:inline">About</span>
@@ -44,7 +44,7 @@ const Navbar = () => {
 
             <NavLink
               to="/view-books"
-              className="hover:text-blue-600 transition flex items-center gap-1"
+              className="hover:text-aqua transition flex items-center gap-1"
             >
               <BookOpen size={20} />
               <span className="hidden sm:inline">View Books</span>
