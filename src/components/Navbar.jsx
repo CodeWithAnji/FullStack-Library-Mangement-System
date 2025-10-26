@@ -1,7 +1,7 @@
 // src/components/Navbar.jsx
 import React from "react";
 import { NavLink } from "react-router-dom";
-import { Home, Info, LogIn, BookOpen, User, LogOut } from "lucide-react";
+import { Home, Info, LogIn, BookOpen, UserCircle2, LogOut } from "lucide-react";
 import { useAuth } from "../context/AuthContext";
 import { toast } from "react-toastify";
 
@@ -56,7 +56,7 @@ const Navbar = () => {
         <div className="flex items-center gap-4 text-grayish font-medium">
           {user ? (
             <div className="flex items-center gap-3">
-              <User size={22} className="text-deepBlue" />
+              <UserCircle2 size={22} className="text-deepBlue" />
               <span className="hidden sm:inline font-semibold text-deepBlue">
                 {user.username}
               </span>

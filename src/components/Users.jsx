@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Trash2 } from "lucide-react";
+import { Trash2, UserCircle2 } from "lucide-react";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
@@ -27,7 +27,7 @@ const Users = () => {
   const handleDelete = async (id) => {
     if (!window.confirm("Are you sure you want to delete this user?")) return;
     try {
-      const res = await fetch(`http://localhost:8009/api/auth/${id}`, {
+      const res = await fetch(`http://localhost:8009/api/users/${id}`, {
         method: "DELETE",
       });
       if (res.ok) {
@@ -43,36 +43,47 @@ const Users = () => {
   };
 
   return (
-    <div className="p-6">
-      <h2 className="text-xl font-semibold mb-4">User Management</h2>
-      <div className="overflow-x-auto">
-        <table className="w-full border-collapse border">
-          <thead className="bg-gray-200">
+    <div className="p-6 min-h-screen bg-gray-50">
+      <h2 className="text-2xl font-bold text-deepBlue mb-6 flex items-center gap-2">
+        <UserCircle2 size={26} className="text-green-600" />
+        User Management
+      </h2>
+
+      <div className="bg-white shadow-md overflow-hidden border-gray-100 rounded-lg">
+        <table className="w-full table-auto text-sm md:text-base">
+          <thead className="bg-green-600 text-white">
             <tr>
-              <th className="border p-2">Full Name</th>
-
-              <th className="border p-2">Mobile Number</th>
-              <th className="border p-2">Email</th>
-
-              <th className="border p-2 text-center">Actions</th>
+              <th className="py-3 px-4 text-left w-16">S.No.</th>
+              <th className="py-3 px-4 text-left">Full Name</th>
+              <th className="py-3 px-4 text-left">Mobile Number</th>
+              <th className="py-3 px-4 text-left">Email</th>
+              <th className="py-3 px-4 text-center">Actions</th>
             </tr>
           </thead>
           <tbody>
             {users.length > 0 ? (
-              users.map((u) => (
-                <tr key={u.id} className="hover:bg-gray-100">
-                  <td className="border p-2">{u.fullName}</td>
-
-                  <td className="border p-2">{u.mobileNumber}</td>
-                  <td className="border p-2">{u.email}</td>
-
-                  <td className="border p-2 text-center">
+              users.map((u, index) => (
+                <tr
+                  key={u.id}
+                  className="border-b hover:bg-gray-100 transition-all"
+                >
+                  <td className="py-3 px-4 text-gray-700 font-medium text-center">
+                    {index + 1}
+                  </td>
+                  <td className="py-3 px-4 font-medium text-gray-800">
+                    {u.fullName}
+                  </td>
+                  <td className="py-3 px-4 text-gray-600">
+                    {u.mobileNumber || "—"}
+                  </td>
+                  <td className="py-3 px-4 text-gray-600">{u.email}</td>
+                  <td className="py-3 px-4 text-center">
                     <button
                       onClick={() => handleDelete(u.id)}
-                      className="text-red-600 hover:text-red-800 transition-colors"
+                      className="p-2 rounded-full bg-red-50 hover:bg-red-100 transition-all"
                       title="Delete User"
                     >
-                      <Trash2 size={18} />
+                      <Trash2 size={18} className="text-red-700" />
                     </button>
                   </td>
                 </tr>
@@ -80,8 +91,8 @@ const Users = () => {
             ) : (
               <tr>
                 <td
-                  colSpan="6"
-                  className="border p-4 text-center text-gray-500"
+                  colSpan="5"
+                  className="py-6 text-center text-gray-500 italic"
                 >
                   No users found.
                 </td>

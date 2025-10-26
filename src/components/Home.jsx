@@ -1,7 +1,6 @@
 import React from "react";
 import { BookOpen, Search, Users, Clock } from "lucide-react";
 import Lib from "../assets/lib1.jpg";
-
 const Home = () => {
   return (
     <main className="flex flex-col items-center w-full min-h-screen bg-ice">
